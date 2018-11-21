@@ -1,0 +1,16 @@
+C:\Users\Sem\Documents\GitHub\thousand-switches\thousand-switches\thousand-switches\bin\Debug\thousand-switches.exe.config
+C:\Users\Sem\Documents\GitHub\thousand-switches\thousand-switches\thousand-switches\bin\Debug\thousand-switches.exe
+C:\Users\Sem\Documents\GitHub\thousand-switches\thousand-switches\thousand-switches\bin\Debug\thousand-switches.pdb
+C:\Users\Sem\Documents\GitHub\thousand-switches\thousand-switches\thousand-switches\obj\Debug\App.g.cs
+C:\Users\Sem\Documents\GitHub\thousand-switches\thousand-switches\thousand-switches\obj\Debug\thousand-switches_MarkupCompile.cache
+C:\Users\Sem\Documents\GitHub\thousand-switches\thousand-switches\thousand-switches\obj\Debug\thousand-switches_MarkupCompile.lref
+C:\Users\Sem\Documents\GitHub\thousand-switches\thousand-switches\thousand-switches\obj\Debug\thousand-switches.g.resources
+C:\Users\Sem\Documents\GitHub\thousand-switches\thousand-switches\thousand-switches\obj\Debug\thousand_switches.Properties.Resources.resources
+C:\Users\Sem\Documents\GitHub\thousand-switches\thousand-switches\thousand-switches\obj\Debug\thousand-switches.csproj.GenerateResource.cache
+C:\Users\Sem\Documents\GitHub\thousand-switches\thousand-switches\thousand-switches\obj\Debug\thousand-switches.csproj.CoreCompileInputs.cache
+C:\Users\Sem\Documents\GitHub\thousand-switches\thousand-switches\thousand-switches\obj\Debug\thousand-switches.exe
+C:\Users\Sem\Documents\GitHub\thousand-switches\thousand-switches\thousand-switches\obj\Debug\thousand-switches.pdb
+C:\Users\Sem\Documents\GitHub\thousand-switches\thousand-switches\thousand-switches\obj\Debug\Login_Window.g.cs
+C:\Users\Sem\Documents\GitHub\thousand-switches\thousand-switches\thousand-switches\obj\Debug\Main_Window.g.cs
+C:\Users\Sem\Documents\GitHub\thousand-switches\thousand-switches\thousand-switches\obj\Debug\Login_Window.baml
+C:\Users\Sem\Documents\GitHub\thousand-switches\thousand-switches\thousand-switches\obj\Debug\Main_Window.baml

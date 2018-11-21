@@ -24,5 +24,21 @@ namespace thousand_switches
         {
             InitializeComponent();
         }
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            welcome_lbl.Background = Brushes.Black;
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Main_Window new_window = new Main_Window();
+
+            new_window.Show();
+        }
     }
 }
