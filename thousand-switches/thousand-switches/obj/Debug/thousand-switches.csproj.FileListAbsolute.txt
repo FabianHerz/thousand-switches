@@ -14,3 +14,4 @@ C:\Users\Sem\Documents\GitHub\thousand-switches\thousand-switches\thousand-switc
 C:\Users\Sem\Documents\GitHub\thousand-switches\thousand-switches\thousand-switches\obj\Debug\Main_Window.g.cs
 C:\Users\Sem\Documents\GitHub\thousand-switches\thousand-switches\thousand-switches\obj\Debug\Login_Window.baml
 C:\Users\Sem\Documents\GitHub\thousand-switches\thousand-switches\thousand-switches\obj\Debug\Main_Window.baml
+C:\Users\Sem\Documents\GitHub\thousand-switches\thousand-switches\thousand-switches\obj\Debug\thousand-switches.csprojAssemblyReference.cache

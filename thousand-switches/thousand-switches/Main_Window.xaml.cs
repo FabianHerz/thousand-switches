@@ -23,5 +23,7 @@ namespace thousand_switches
         {
             InitializeComponent();
         }
+
+
     }
 }

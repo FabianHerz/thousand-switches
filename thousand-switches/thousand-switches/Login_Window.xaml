@@ -9,26 +9,14 @@
         MouseLeftButtonDown="Window_MouseLeftButtonDown" AllowsTransparency="True"
         Title="Login Window" Height="603" Width="320.5" WindowStyle="None" ResizeMode="NoResize" >
     <Window.Resources>
-        <Style x:Key="RoundCornerNonActive" TargetType="{x:Type Button}">
+        <Color x:Key="DarkGray">#FF232323</Color>
+        <Color x:Key="LightGray">#C1C1C1</Color>
+        <Color x:Key="Gray">#3B3B3B</Color>
+        <Color x:Key="Green">#72CF6F</Color>
+        <Color x:Key="Red">#E96969</Color>
+        <Color x:Key="LightBlue">#3BECF2</Color>
+        <Color x:Key="DarkGreen">#FF37AA42</Color>
 
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate x:Name="pipka" TargetType="Button">
-                        <Grid>
-
-                            <Border Background="{TemplateBinding Background}" 
-                x:Name="Bd" 
-                BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="15">
-                                
-                            </Border>
-                            <ContentPresenter Content = "{TemplateBinding Content}"
-               HorizontalAlignment = "Center" VerticalAlignment = "Center" />
-
-                        </Grid>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
         <ControlTemplate x:Key="TextBoxBaseControlTemplate" TargetType="{x:Type TextBoxBase}">
             <Border Background="{TemplateBinding Background}" 
                 x:Name="Bd" 
@@ -42,6 +30,7 @@
                     <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" TargetName="Bd"/>
                     <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
                 </Trigger>
+
                 <Trigger Property="Width" Value="Auto">
                     <Setter Property="MinWidth" Value="100"/>
                 </Trigger>
@@ -58,9 +47,13 @@
             </Border>
             <ControlTemplate.Triggers>
                 <Trigger Property="IsEnabled" Value="False">
-                    <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" TargetName="Bd"/>
+                    <Setter Property="Background" Value="#ffffff" TargetName="Bd"/>
                     <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
                 </Trigger>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#ffffff" />
+                </Trigger>
+
                 <Trigger Property="Width" Value="Auto">
                     <Setter Property="MinWidth" Value="100"/>
                 </Trigger>
@@ -70,16 +63,84 @@
             </ControlTemplate.Triggers>
         </ControlTemplate>
     </Window.Resources>
-    <Grid Background="#FF171717">
-        <Label x:Name="welcome_lbl" Content="Welcome!" Margin="39,39,39,0" VerticalAlignment="Top" Height="85" FontSize="54" Foreground="#FF3BECF2"/>
-        <TextBox Template="{StaticResource TextBoxBaseControlTemplate}" Height="30" Margin="39,219,39,354" TextWrapping="Wrap" VerticalAlignment="Center" Background="#FF3B3B3B" BorderBrush="#FF142C78" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="242" FontSize="10"/>
-        <Label Content="Enter username or email:" Height="28" Margin="89,196,89,0" VerticalAlignment="Top" Background="#00000000" Foreground="#FF3BECF2"/>
-        <Label Content="Enter password:" Height="28" Margin="114,263,113,0" VerticalAlignment="Top" Background="#00000000" Foreground="#FF3BECF2"/>
-        <PasswordBox Template="{StaticResource Passwordbox}" HorizontalAlignment="Left" Height="30" Margin="39,0,39,288"  VerticalAlignment="Bottom"
-                     Background="#FF3B3B3B" 
+    <Window.Background>
+        <SolidColorBrush Color="{DynamicResource DarkGray}"/>
+    </Window.Background>
+    <Grid>
+        
+        <Label x:Name="welcome_lbl" Content="Welcome!" Margin="39,39,39,0" VerticalAlignment="Top" Height="85" FontSize="54">
+            <Label.Foreground>
+                <SolidColorBrush Color="{DynamicResource LightBlue}"/>
+            </Label.Foreground>
+        </Label>
+        <TextBox Template="{StaticResource TextBoxBaseControlTemplate}" Height="30" Margin="39,219,39,354" TextWrapping="Wrap" VerticalAlignment="Center" BorderBrush="#FF142C78" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="242" FontSize="10">
+            <TextBox.Background>
+                <SolidColorBrush Color="{DynamicResource Gray}"/>
+            </TextBox.Background>
+        </TextBox>
+        <Label Content="Enter username or email:" Height="28" Margin="89,196,89,0" VerticalAlignment="Top" Background="#00000000">
+            <Label.Foreground>
+                <SolidColorBrush Color="{DynamicResource LightBlue}"/>
+            </Label.Foreground>
+        </Label>
+        <Label Content="Enter password:" Height="28" Margin="114,263,113,0" VerticalAlignment="Top" Background="#00000000">
+            <Label.Foreground>
+                <SolidColorBrush Color="{DynamicResource LightBlue}"/>
+            </Label.Foreground>
+        </Label>
+        <PasswordBox Template="{StaticResource Passwordbox}" HorizontalAlignment="Left" Margin="39,285,0,288" 
                      BorderBrush="#FF707070" 
                      Foreground="White" 
-                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="242" FontSize="10" />
-        <Button  Style="{StaticResource RoundCornerNonActive}" Content="Sign in" Height="29" Margin="39,342,39,0" VerticalAlignment="Top" Background="#FF3BECF2" BorderBrush="White" Foreground="#FF171717" FontSize="14" Click="Button_Click_1"/>
+                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="242" FontSize="10" >
+            <PasswordBox.Background>
+                <SolidColorBrush Color="{DynamicResource Gray}"/>
+            </PasswordBox.Background>
+        </PasswordBox>
+        <Button   Content="Sign in" Height="30" Margin="39,351,39,0" VerticalAlignment="Top" BorderBrush="{x:Null}" FontSize="14" Click="Button_Click_1" >
+            <Button.Foreground>
+                <SolidColorBrush Color="{DynamicResource DarkGray}"/>
+            </Button.Foreground>
+
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border CornerRadius="15"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                Height="{TemplateBinding Height}"
+                Width="{TemplateBinding Width}">
+
+                        <Border.Background>
+                            <SolidColorBrush x:Name="BackgroundColor" Color="{DynamicResource LightBlue}" />
+                        </Border.Background>
+                        <ContentControl Margin="{TemplateBinding Padding}"
+                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                    Content="{TemplateBinding Content}" />
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal" >
+                                    <Storyboard>
+                                        <ColorAnimation Storyboard.TargetName="BackgroundColor" 
+                                                Storyboard.TargetProperty="Color" 
+                                                To="{StaticResource LightBlue}" Duration="0:0:0.150" />
+
+                                    </Storyboard>
+
+                                </VisualState>
+                            <VisualState x:Name="MouseOver">
+                                <Storyboard>
+                                    <ColorAnimation Storyboard.TargetName="BackgroundColor" 
+                                                Storyboard.TargetProperty="Color" 
+                                                To="{StaticResource DarkGreen}" Duration="0:0:0.150" />
+                                   
+                                </Storyboard>
+                            </VisualState>
+                        </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+
+        </Button>
     </Grid>
 </Window>
