@@ -14,18 +14,112 @@
         <Color x:Key="Green">#72CF6F</Color>
         <Color x:Key="Red">#E96969</Color>
         <Color x:Key="LightBlue">#3BECF2</Color>
+        <Color x:Key="DarkGreen">#FF3BAFAC</Color>
+        <ControlTemplate x:Key="buttonon"  TargetType="{x:Type Button}">
+            <Border CornerRadius="20"
+                        
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        Height="{TemplateBinding Height}"
+                        Width="{TemplateBinding Width}">
+
+                <Border.Background>
+                    <SolidColorBrush x:Name="BackgroundColor1" Color="{DynamicResource Gray}" />
+                </Border.Background>
+                <Border.BorderBrush>
+                    <SolidColorBrush x:Name="BorderColor" Color="{DynamicResource LightGray}"/>
+                </Border.BorderBrush>
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" >
+                            <Storyboard>
+                                <ColorAnimation Storyboard.TargetName="BackgroundColor1" 
+                                            Storyboard.TargetProperty="Color" 
+                                            To="{StaticResource Gray}" Duration="0:0:0.150" />
+                                <ColorAnimation Storyboard.TargetName="BorderColor" Storyboard.TargetProperty="Color"
+                                            To="{StaticResource LightBlue}" Duration="0:0:0.150"/>
+
+                            </Storyboard>
+
+                        </VisualState>
+                        <VisualState x:Name="MouseOver">
+                            <Storyboard>
+
+                                <ColorAnimation Storyboard.TargetName="BackgroundColor1" 
+                                            Storyboard.TargetProperty="Color" 
+                                            To="{StaticResource DarkGray}" Duration="0:0:0.150" />
+                                <ColorAnimation Storyboard.TargetName="BorderColor" Storyboard.TargetProperty="Color"
+                                            To="{StaticResource LightBlue}" Duration="0:0:0.150"/>
+
+
+                            </Storyboard>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+                <ContentControl Margin="{TemplateBinding Padding}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Content="{TemplateBinding Content}" />
+            </Border>
+        </ControlTemplate>
+
+        <ControlTemplate x:Key="buttonsimle"  TargetType="{x:Type Button}">
+            <Border CornerRadius="20"
+                        
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        Height="{TemplateBinding Height}"
+                        Width="{TemplateBinding Width}">
+
+                <Border.Background>
+                    <SolidColorBrush x:Name="BackgroundColor1" Color="{DynamicResource Gray}" />
+                </Border.Background>
+                <Border.BorderBrush>
+                    <SolidColorBrush x:Name="BorderColor" Color="{DynamicResource LightGray}"/>
+                </Border.BorderBrush>
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" >
+                            <Storyboard>
+                                <ColorAnimation Storyboard.TargetName="BackgroundColor1" 
+                                            Storyboard.TargetProperty="Color" 
+                                            To="{StaticResource Gray}" Duration="0:0:0.150" />
+                                <ColorAnimation Storyboard.TargetName="BorderColor" Storyboard.TargetProperty="Color"
+                                            To="{StaticResource LightGray}" Duration="0:0:0.150"/>
+
+                            </Storyboard>
+
+                        </VisualState>
+                        <VisualState x:Name="MouseOver">
+                            <Storyboard>
+
+                                <ColorAnimation Storyboard.TargetName="BackgroundColor1" 
+                                            Storyboard.TargetProperty="Color" 
+                                            To="{StaticResource DarkGray}" Duration="0:0:0.150" />
+                                <ColorAnimation Storyboard.TargetName="BorderColor" Storyboard.TargetProperty="Color"
+                                            To="{StaticResource LightGray}" Duration="0:0:0.150"/>
+
+
+                            </Storyboard>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+                <ContentControl Margin="{TemplateBinding Padding}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Content="{TemplateBinding Content}" />
+            </Border>
+        </ControlTemplate>
     </Window.Resources>
-   
+
     <Window.Triggers>
         <EventTrigger RoutedEvent="Loaded">
-            
+
             <BeginStoryboard>
                 <Storyboard Duration="0:0:1" Storyboard.TargetProperty="Opacity">
-                    <DoubleAnimation From="0" To="1" Duration="0:0:0.350"/>
+                    <DoubleAnimation From="0" To="1" Duration="0:0:0.5"/>
                 </Storyboard>
             </BeginStoryboard>
         </EventTrigger>
-            
+
 
     </Window.Triggers>
 
@@ -33,22 +127,192 @@
         <SolidColorBrush Color="{DynamicResource DarkGray}"/>
     </Window.Background>
     <Grid Margin="0">
+
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="50"/>
             <ColumnDefinition/>
             <ColumnDefinition Width="270"/>
         </Grid.ColumnDefinitions>
+        <Canvas x:Name="canvas" Grid.Column="1" HorizontalAlignment="Left" Height="768" VerticalAlignment="Top" Width="1046">
+            <Grid x:Name="Router_1"  HorizontalAlignment="Left" Height="40" Margin="0" VerticalAlignment="Top" Width="159" Canvas.Top="55" Canvas.Left="88">
+                <Button x:Name="router_1" Height="40" VerticalAlignment="Top" FontSize="14"  Width="159" Click="New_register_btn_Click" Content="Router 1" Template="{DynamicResource buttonsimle}"  >
+                    <Button.Effect>
+                        <DropShadowEffect Color="#FF302F2F" BlurRadius="2" Direction="270" Opacity="0.15"/>
+                    </Button.Effect>
+                    <Button.Foreground>
+                        <SolidColorBrush Color="{DynamicResource LightGray}"/>
+                    </Button.Foreground>
+
+
+
+                </Button>
+                <Ellipse x:Name="elipse" Height="11" Width="11" Margin="135,14,13,15" >
+                    <Ellipse.Stroke>
+                        <SolidColorBrush Color="{DynamicResource LightGray}"/>
+                    </Ellipse.Stroke>
+                    <Ellipse.Fill>
+                        <SolidColorBrush Color="{DynamicResource Green}"/>
+                    </Ellipse.Fill>
+                </Ellipse>
+
+                <Label Content="&#xF453; " HorizontalAlignment="Left" Height="24" Margin="12,8,0,0" VerticalAlignment="Top" Width="26" Padding="0,-3,0,0" FontFamily="Font Awesome 5 Pro Regular" FontSize="24">
+                    <Label.Foreground>
+                        <SolidColorBrush Color="{DynamicResource LightGray}"/>
+                    </Label.Foreground>
+                </Label>
+            </Grid>
+            <Grid x:Name="grid_switch_1" Grid.Column="1" HorizontalAlignment="Left" Margin="0" Width="161" Canvas.Top="55" Canvas.Left="393">
+                <Button x:Name="switch_1" Height="40" VerticalAlignment="Top" FontSize="14"  Width="159" Click="New_register_btn_Click" Content="Switch 1" Template="{DynamicResource buttonsimle}"  >
+                    <Button.Effect>
+                        <DropShadowEffect Color="#FF302F2F" BlurRadius="2" Direction="270" Opacity="0.15"/>
+                    </Button.Effect>
+                    <Button.Foreground>
+                        <SolidColorBrush Color="{DynamicResource LightGray}"/>
+                    </Button.Foreground>
+
+
+
+                </Button>
+                <Ellipse x:Name="elipse1" Height="11" Width="11" Margin="135,14,13,15" >
+                    <Ellipse.Stroke>
+                        <SolidColorBrush Color="{DynamicResource LightGray}"/>
+                    </Ellipse.Stroke>
+                    <Ellipse.Fill>
+                        <SolidColorBrush Color="{DynamicResource Green}"/>
+                    </Ellipse.Fill>
+                </Ellipse>
+
+                <Label Content="&#xF0A0;" HorizontalAlignment="Left" Height="24" Margin="12,8,0,0" VerticalAlignment="Top" Width="27" Padding="0,-3,0,0" FontFamily="Font Awesome 5 Pro Regular" FontSize="24">
+                    <Label.Foreground>
+                        <SolidColorBrush Color="{DynamicResource LightGray}"/>
+                    </Label.Foreground>
+                </Label>
+
+
+
+
+            </Grid>
+            <Grid x:Name="grid_switch_3" Grid.Column="1" HorizontalAlignment="Left" Margin="0" Width="161" Height="40" VerticalAlignment="Top" Canvas.Top="195" Canvas.Left="393">
+                <Button x:Name="switch_3" Height="40" VerticalAlignment="Top" FontSize="14"  Width="159" Click="New_register_btn_Click" Content="Switch 3" Template="{DynamicResource buttonsimle}"  >
+                    <Button.Effect>
+                        <DropShadowEffect Color="#FF302F2F" BlurRadius="2" Direction="270" Opacity="0.15"/>
+                    </Button.Effect>
+                    <Button.Foreground>
+                        <SolidColorBrush Color="{DynamicResource LightGray}"/>
+                    </Button.Foreground>
+
+
+
+                </Button>
+                <Ellipse x:Name="elipse2" Height="11" Width="11" Margin="135,14,13,15" >
+                    <Ellipse.Stroke>
+                        <SolidColorBrush Color="{DynamicResource LightGray}"/>
+                    </Ellipse.Stroke>
+                    <Ellipse.Fill>
+                        <SolidColorBrush Color="{DynamicResource Green}"/>
+                    </Ellipse.Fill>
+                </Ellipse>
+
+                <Label Content="&#xF0A0;" HorizontalAlignment="Left" Height="24" Margin="12,8,0,0" VerticalAlignment="Top" Width="28" Padding="0,-3,0,0" FontFamily="Font Awesome 5 Pro Regular" FontSize="24">
+                    <Label.Foreground>
+                        <SolidColorBrush Color="{DynamicResource LightGray}"/>
+                    </Label.Foreground>
+                </Label>
+
+
+
+
+            </Grid>
+            <Grid x:Name="grid_switch_2" Grid.Column="1" HorizontalAlignment="Left" Margin="0" Width="161" Canvas.Top="125" Canvas.Left="393">
+                <Button x:Name="switch_2" Height="40" VerticalAlignment="Top" FontSize="14"  Width="159" Click="New_register_btn_Click" Content="Switch 2" Template="{DynamicResource buttonsimle}"  >
+                    <Button.Effect>
+                        <DropShadowEffect Color="#FF302F2F" BlurRadius="2" Direction="270" Opacity="0.15"/>
+                    </Button.Effect>
+                    <Button.Foreground>
+                        <SolidColorBrush Color="{DynamicResource LightGray}"/>
+                    </Button.Foreground>
+
+
+
+                </Button>
+                <Ellipse x:Name="elipse3" Height="11" Width="11" Margin="135,14,13,15" >
+                    <Ellipse.Stroke>
+                        <SolidColorBrush Color="{DynamicResource LightGray}"/>
+                    </Ellipse.Stroke>
+                    <Ellipse.Fill>
+                        <SolidColorBrush Color="{DynamicResource Green}"/>
+                    </Ellipse.Fill>
+                </Ellipse>
+
+                <Label Content="&#xF0A0;" HorizontalAlignment="Left" Height="24" Margin="12,8,0,0" VerticalAlignment="Top" Width="28" Padding="0,-3,0,0" FontFamily="Font Awesome 5 Pro Regular" FontSize="24">
+                    <Label.Foreground>
+                        <SolidColorBrush Color="{DynamicResource LightGray}"/>
+                    </Label.Foreground>
+                </Label>
+
+
+
+
+            </Grid>
+        </Canvas>
         <Grid Grid.Column="2" Margin="0">
             <Grid.Effect>
-                <DropShadowEffect Direction="180" Opacity="0.4"/>
+                <DropShadowEffect Direction="180" Opacity="0.15" BlurRadius="2"/>
             </Grid.Effect>
             <Grid.Background>
                 <SolidColorBrush Color="{DynamicResource Gray}"/>
             </Grid.Background>
+            <Button x:Name="Exit"   Content="&#xF00D;" Height="39" VerticalAlignment="Top" BorderBrush="{x:Null}" FontSize="22" FontFamily="Font Awesome 5 Pro Light" Margin="231,0,0,0" Click="Exit_Click" >
+                <Button.Foreground>
+                    <SolidColorBrush Color="{DynamicResource LightBlue}"/>
+                </Button.Foreground>
+
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border 
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Height="{TemplateBinding Height}"
+                            Width="{TemplateBinding Width}">
+
+                            <Border.Background>
+                                <SolidColorBrush x:Name="BackgroundColor" Color="{DynamicResource Gray}" />
+                            </Border.Background>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal" >
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="BackgroundColor" 
+                                                Storyboard.TargetProperty="Color" 
+                                                To="{StaticResource Gray}" Duration="0:0:0.150" />
+
+                                        </Storyboard>
+
+                                    </VisualState>
+                                    <VisualState x:Name="MouseOver">
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="BackgroundColor" 
+                                                Storyboard.TargetProperty="Color" 
+                                                To="{StaticResource Red}" Duration="0:0:0.150" />
+
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <ContentControl Margin="{TemplateBinding Padding}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Content="{TemplateBinding Content}" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+
+            </Button>
         </Grid>
         <Grid HorizontalAlignment="Left" Width="50">
             <Grid.Effect>
-                <DropShadowEffect Direction="353" Opacity="0.4"/>
+                <DropShadowEffect Direction="353" Opacity="0.15" BlurRadius="2"/>
             </Grid.Effect>
             <Grid.Background>
                 <SolidColorBrush Color="{DynamicResource Gray}"/>
@@ -144,6 +408,7 @@
                 </Button.Template>
             </Button>
         </Grid>
+
 
     </Grid>
 </Window>

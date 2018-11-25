@@ -52,7 +52,7 @@ namespace thousand_switches {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/thousand-switches;component/mainwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/thousand-switches;component/login_window.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\MainWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

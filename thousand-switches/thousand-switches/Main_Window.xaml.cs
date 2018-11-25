@@ -23,6 +23,10 @@ namespace thousand_switches
         {
             InitializeComponent();
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
+            draw_line(Router_1, grid_switch_1);
+            draw_line(Router_1, grid_switch_2);
+            draw_line(Router_1, grid_switch_3);
+
             //this.Visibility = Visibility.Hidden;
         }
 
@@ -31,7 +35,38 @@ namespace thousand_switches
             DragMove();
         }
 
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void New_register_btn_Click(object sender, RoutedEventArgs e)
+        {
+
+            this.elipse.Fill = new SolidColorBrush((Color)this.FindResource("Red"));
+            this.elipse.Stroke = new SolidColorBrush((Color)this.FindResource("LightBlue"));
+
+            router_1.Template = ((ControlTemplate)this.FindResource("buttonon"));
+            ServicesAnimation.transponent(grid_switch_1, 88, 55, 393, 55,canvas);
+            ServicesAnimation.transponent(grid_switch_2, 88, 55, 393, 125,canvas);
+            ServicesAnimation.transponent(grid_switch_3, 88, 55, 393, 195,canvas);
 
 
+        }
+        public void draw_line(Grid from,Grid to)
+        {
+            Line myLine = new Line();
+            myLine.Stroke = new SolidColorBrush((Color)this.FindResource("LightGray"));
+            myLine.X1 = Canvas.GetLeft(from)+from.Width;
+            myLine.X2 = Canvas.GetLeft(to);
+            myLine.Y1 = Canvas.GetTop(from)+20;
+            myLine.Y2 = Canvas.GetTop(to)+20;
+            myLine.Name = "from_" + from.Name + "_to_" + to.Name;
+            myLine.HorizontalAlignment = HorizontalAlignment.Left;
+            myLine.VerticalAlignment = VerticalAlignment.Center;
+            myLine.StrokeThickness = 1;
+            canvas.Children.Add(myLine);
+
+        }
     }
 }

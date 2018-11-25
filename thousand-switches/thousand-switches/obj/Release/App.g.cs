@@ -46,9 +46,9 @@ namespace thousand_switches {
         [System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "4.0.0.0")]
         public void InitializeComponent() {
-            
-            #line 5 "..\..\App.xaml"
-            this.StartupUri = new System.Uri("MainWindow.xaml", System.UriKind.Relative);
+
+#line 5 "..\..\App.xaml"
+            this.StartupUri = new System.Uri("Login_Window.xaml", System.UriKind.Relative);
             
             #line default
             #line hidden

@@ -2,8 +2,15 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:thousand_switches"
-             StartupUri="MainWindow.xaml">
+             StartupUri="Login_Window.xaml">
     <Application.Resources>
-         
+        <Color x:Key="DarkGray">#FF232323</Color>
+        <Color x:Key="LightGray">#C1C1C1</Color>
+        <Color x:Key="Gray">#3B3B3B</Color>
+        <Color x:Key="Green">#72CF6F</Color>
+        <Color x:Key="Red">#E96969</Color>
+        <Color x:Key="LightBlue">#3BECF2</Color>
+        <Color x:Key="DarkGreen">#FF3BAFAC</Color>
+        
     </Application.Resources>
 </Application>
