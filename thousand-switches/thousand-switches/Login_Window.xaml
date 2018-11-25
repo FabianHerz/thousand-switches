@@ -85,11 +85,32 @@
                     <SolidColorBrush Color="{DynamicResource LightBlue}"/>
                 </Label.Foreground>
             </Label>
-            <TextBox x:Name="reg_username" Template="{StaticResource TextBoxBaseControlTemplate}" Height="30" Margin="0,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" BorderBrush="#FF142C78" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="10">
+            <TextBox x:Name="reg_name" Template="{StaticResource TextBoxBaseControlTemplate}" Height="30" Margin="0,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" BorderBrush="#FF142C78" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="10">
+                <TextBox.Effect>
+                    <DropShadowEffect Color="#FF302F2F" BlurRadius="2" Direction="270" Opacity="0.15"/>
+                </TextBox.Effect>
                 <TextBox.Background>
                     <SolidColorBrush Color="{DynamicResource Gray}"/>
                 </TextBox.Background>
             </TextBox>
+            <TextBox x:Name="reg_username" Template="{StaticResource TextBoxBaseControlTemplate}" Height="30" Margin="0,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" BorderBrush="#FF142C78" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="10">
+                <TextBox.Effect>
+                    <DropShadowEffect Color="#FF302F2F" BlurRadius="2" Direction="270" Opacity="0.15"/>
+                </TextBox.Effect>
+                <TextBox.Background>
+                    <SolidColorBrush Color="{DynamicResource Gray}"/>
+                </TextBox.Background>
+            </TextBox>
+
+            <TextBox x:Name="reg_email" Template="{StaticResource TextBoxBaseControlTemplate}" Height="30" Margin="0,226,0,0" TextWrapping="Wrap" VerticalAlignment="Top" BorderBrush="#FF142C78" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="10">
+                <TextBox.Effect>
+                    <DropShadowEffect Color="#FF302F2F" BlurRadius="2" Direction="270" Opacity="0.15"/>
+                </TextBox.Effect>
+                <TextBox.Background>
+                    <SolidColorBrush Color="{DynamicResource Gray}"/>
+                </TextBox.Background>
+            </TextBox>
+
             <Label Content="Enter username:" Height="28" Margin="0,140,99,0" VerticalAlignment="Top" Background="#00000000">
                 <Label.Foreground>
                     <SolidColorBrush Color="{DynamicResource LightBlue}"/>
@@ -104,11 +125,28 @@
                      BorderBrush="#FF707070" 
                      Foreground="White" 
                      HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="246" FontSize="10" >
+                <PasswordBox.Effect>
+                    <DropShadowEffect Color="#FF302F2F" BlurRadius="2" Direction="270" Opacity="0.15"/>
+                </PasswordBox.Effect>
+                <PasswordBox.Background>
+                    <SolidColorBrush Color="{DynamicResource Gray}"/>
+                </PasswordBox.Background>
+            </PasswordBox>
+            <PasswordBox x:Name="reg_rep_password" Template="{StaticResource Passwordbox}" HorizontalAlignment="Left" Margin="0,342,0,62" 
+                BorderBrush="#FF707070" 
+                Foreground="White" 
+                HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="246" FontSize="10" >
+                <PasswordBox.Effect>
+                    <DropShadowEffect Color="#FF302F2F" BlurRadius="2" Direction="270" Opacity="0.15"/>
+                </PasswordBox.Effect>
                 <PasswordBox.Background>
                     <SolidColorBrush Color="{DynamicResource Gray}"/>
                 </PasswordBox.Background>
             </PasswordBox>
             <Button   Content="Register" Height="30" Margin="0,404,0,0" VerticalAlignment="Top" FontSize="14" Click="Button_Click_1"  >
+                <Button.Effect>
+                    <DropShadowEffect Color="#FF302F2F" BlurRadius="2" Direction="270" Opacity="0.15"/>
+                </Button.Effect>
                 <Button.BorderBrush>
                     <SolidColorBrush Color="{DynamicResource DarkGreen}"/>
                 </Button.BorderBrush>
@@ -166,11 +204,6 @@
                 </Button.Template>
 
             </Button>
-            <TextBox x:Name="reg_email" Template="{StaticResource TextBoxBaseControlTemplate}" Height="30" Margin="0,226,0,0" TextWrapping="Wrap" VerticalAlignment="Top" BorderBrush="#FF142C78" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="10">
-                <TextBox.Background>
-                    <SolidColorBrush Color="{DynamicResource Gray}"/>
-                </TextBox.Background>
-            </TextBox>
             <Label Content="Enter email:" Height="28" Margin="0,198,99,0" VerticalAlignment="Top" Background="#00000000">
                 <Label.Foreground>
                     <SolidColorBrush Color="{DynamicResource LightBlue}"/>
@@ -181,19 +214,7 @@
                     <SolidColorBrush Color="{DynamicResource LightBlue}"/>
                 </Label.Foreground>
             </Label>
-            <PasswordBox x:Name="reg_rep_password" Template="{StaticResource Passwordbox}" HorizontalAlignment="Left" Margin="0,342,0,62" 
-                BorderBrush="#FF707070" 
-                Foreground="White" 
-                HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="246" FontSize="10" >
-                <PasswordBox.Background>
-                    <SolidColorBrush Color="{DynamicResource Gray}"/>
-                </PasswordBox.Background>
-            </PasswordBox>
-            <TextBox x:Name="reg_name" Template="{StaticResource TextBoxBaseControlTemplate}" Height="30" Margin="0,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" BorderBrush="#FF142C78" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="10">
-                <TextBox.Background>
-                    <SolidColorBrush Color="{DynamicResource Gray}"/>
-                </TextBox.Background>
-            </TextBox>
+
             <Label Content="Enter your name:" Height="28" Margin="0,82,99,0" VerticalAlignment="Top" Background="#00000000">
                 <Label.Foreground>
                     <SolidColorBrush Color="{DynamicResource LightBlue}"/>
@@ -209,6 +230,9 @@
                 </Label.Foreground>
             </Label>
             <TextBox x:Name="username_or_email" Template="{StaticResource TextBoxBaseControlTemplate}" Height="30" Margin="0,172,0,0" TextWrapping="Wrap" VerticalAlignment="Top" BorderBrush="#FF142C78" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="10">
+                <TextBox.Effect>
+                    <DropShadowEffect Color="#FF302F2F" BlurRadius="2" Direction="270" Opacity="0.15"/>
+                </TextBox.Effect>
                 <TextBox.Background>
                     <SolidColorBrush Color="{DynamicResource Gray}"/>
                 </TextBox.Background>
@@ -227,11 +251,17 @@
                      BorderBrush="#FF707070" 
                      Foreground="White" 
                      HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="246" FontSize="10" >
+                <PasswordBox.Effect>
+                    <DropShadowEffect Color="#FF302F2F" BlurRadius="2" Direction="270" Opacity="0.15"/>
+                </PasswordBox.Effect>
                 <PasswordBox.Background>
                     <SolidColorBrush Color="{DynamicResource Gray}"/>
                 </PasswordBox.Background>
             </PasswordBox>
             <Button x:Name="sign_in"   Content="Sign in" Height="30" Margin="0,288,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" FontSize="14" Click="sign_in_Click" >
+                <Button.Effect>
+                    <DropShadowEffect Color="#FF302F2F" BlurRadius="2" Direction="270" Opacity="0.15"/>
+                </Button.Effect>
                 <Button.Foreground>
                     <SolidColorBrush Color="{DynamicResource DarkGray}"/>
                 </Button.Foreground>
@@ -278,6 +308,9 @@
 
             </Button>
             <Button x:Name="new_register_btn"   Content="Register" Height="30" Margin="0,323,0,0" VerticalAlignment="Top" FontSize="14" Click="New_register_btn_Click"  >
+                <Button.Effect>
+                    <DropShadowEffect Color="#FF302F2F" BlurRadius="2" Direction="270" Opacity="0.15"/>
+                </Button.Effect>
                 <Button.BorderBrush>
                     <SolidColorBrush Color="{DynamicResource DarkGreen}"/>
                 </Button.BorderBrush>
