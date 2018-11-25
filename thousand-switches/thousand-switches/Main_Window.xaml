@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:thousand_switches"
         mc:Ignorable="d"
-        Title="Main_Window" Height="768" Width="1366" BorderBrush="Red">
+        MouseLeftButtonDown="Window_MouseLeftButtonDown" AllowsTransparency="True"
+        Title="Main_Window" Height="768" Width="1366" BorderBrush="Red" WindowStyle="None" BorderThickness="0" SnapsToDevicePixels="True">
     <Window.Resources>
         <Color x:Key="DarkGray">#FF232323</Color>
         <Color x:Key="LightGray">#C1C1C1</Color>
@@ -14,6 +15,20 @@
         <Color x:Key="Red">#E96969</Color>
         <Color x:Key="LightBlue">#3BECF2</Color>
     </Window.Resources>
+   
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Loaded">
+            
+            <BeginStoryboard>
+                <Storyboard Duration="0:0:1" Storyboard.TargetProperty="Opacity">
+                    <DoubleAnimation From="0" To="1" Duration="0:0:0.350"/>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+            
+
+    </Window.Triggers>
+
     <Window.Background>
         <SolidColorBrush Color="{DynamicResource DarkGray}"/>
     </Window.Background>
@@ -23,16 +38,22 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="270"/>
         </Grid.ColumnDefinitions>
-        <Grid Grid.Column="2" Margin="-4,0,0,0">
+        <Grid Grid.Column="2" Margin="0">
+            <Grid.Effect>
+                <DropShadowEffect Direction="180" Opacity="0.4"/>
+            </Grid.Effect>
             <Grid.Background>
                 <SolidColorBrush Color="{DynamicResource Gray}"/>
             </Grid.Background>
         </Grid>
-        <Grid HorizontalAlignment="Left" Height="737" VerticalAlignment="Top" Width="50">
+        <Grid HorizontalAlignment="Left" Width="50">
+            <Grid.Effect>
+                <DropShadowEffect Direction="353" Opacity="0.4"/>
+            </Grid.Effect>
             <Grid.Background>
                 <SolidColorBrush Color="{DynamicResource Gray}"/>
             </Grid.Background>
-            <Button x:Name="Network" Content="&#xF0AC;" HorizontalAlignment="Left" Height="50" Margin="0,16,0,0" VerticalAlignment="Top" Width="50" BorderBrush="{x:Null}" FontFamily="Font Awesome 5 Pro Light" FontSize="24">
+            <Button x:Name="Network" Content="&#xF0AC;" HorizontalAlignment="Left" Height="50" Margin="0,16,0,0" VerticalAlignment="Top" Width="50" BorderBrush="{x:Null}" FontFamily="Font Awesome 5 Pro Light" FontSize="24" Padding="0">
                 <Button.Foreground>
                     <SolidColorBrush Color="{DynamicResource LightBlue}"/>
                 </Button.Foreground>
@@ -77,7 +98,7 @@
                     </ControlTemplate>
                 </Button.Template>
             </Button>
-            <Button Content="&#xF017;" HorizontalAlignment="Left" Height="50" Margin="0,66,0,0" VerticalAlignment="Top" Width="50" BorderBrush="{x:Null}" FontFamily="Font Awesome 5 Pro Light" FontSize="26">
+            <Button Content="&#xF017;" HorizontalAlignment="Left" Height="50" Margin="0,66,0,0" VerticalAlignment="Top" Width="50" BorderBrush="{x:Null}" FontFamily="Font Awesome 5 Pro Light" FontSize="26" Padding="0">
                 <Button.Foreground>
                     <SolidColorBrush Color="{DynamicResource LightGray}"/>
                 </Button.Foreground>

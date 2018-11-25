@@ -6,8 +6,20 @@
         xmlns:local="clr-namespace:thousand_switches"
         xmlns:Properties="clr-namespace:thousand_switches.Properties" x:Class="thousand_switches.MainWindow"
         mc:Ignorable="d"
+    x:Name="Login_Window"
         MouseLeftButtonDown="Window_MouseLeftButtonDown" AllowsTransparency="True"
-        Title="Login Window" Height="603" Width="320.5" WindowStyle="None" ResizeMode="NoResize" >
+        Title="Login Window" Height="603" Width="320.5" WindowStyle="None" ResizeMode="NoResize" HorizontalAlignment="Center" VerticalAlignment="Center" >
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Loaded">
+            <BeginStoryboard>
+                <Storyboard Duration="0:0:1" Storyboard.TargetProperty="Opacity" >
+                    <DoubleAnimation From="0.5" To="1" Duration="0:0:0.250" />
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+
+
+    </Window.Triggers>
     <Window.Resources>
         <Color x:Key="DarkGray">#FF232323</Color>
         <Color x:Key="LightGray">#C1C1C1</Color>
@@ -15,7 +27,7 @@
         <Color x:Key="Green">#72CF6F</Color>
         <Color x:Key="Red">#E96969</Color>
         <Color x:Key="LightBlue">#3BECF2</Color>
-        <Color x:Key="DarkGreen">#FF37AA42</Color>
+        <Color x:Key="DarkGreen">#FF3BAFAC</Color>
 
         <ControlTemplate x:Key="TextBoxBaseControlTemplate" TargetType="{x:Type TextBoxBase}">
             <Border Background="{TemplateBinding Background}" 
@@ -66,51 +78,279 @@
     <Window.Background>
         <SolidColorBrush Color="{DynamicResource DarkGray}"/>
     </Window.Background>
-    <Grid>
-        
-        <Label x:Name="welcome_lbl" Content="Welcome!" Margin="39,39,39,0" VerticalAlignment="Top" Height="85" FontSize="54">
-            <Label.Foreground>
-                <SolidColorBrush Color="{DynamicResource LightBlue}"/>
-            </Label.Foreground>
-        </Label>
-        <TextBox Template="{StaticResource TextBoxBaseControlTemplate}" Height="30" Margin="39,219,39,354" TextWrapping="Wrap" VerticalAlignment="Center" BorderBrush="#FF142C78" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="242" FontSize="10">
-            <TextBox.Background>
-                <SolidColorBrush Color="{DynamicResource Gray}"/>
-            </TextBox.Background>
-        </TextBox>
-        <Label Content="Enter username or email:" Height="28" Margin="89,196,89,0" VerticalAlignment="Top" Background="#00000000">
-            <Label.Foreground>
-                <SolidColorBrush Color="{DynamicResource LightBlue}"/>
-            </Label.Foreground>
-        </Label>
-        <Label Content="Enter password:" Height="28" Margin="114,263,113,0" VerticalAlignment="Top" Background="#00000000">
-            <Label.Foreground>
-                <SolidColorBrush Color="{DynamicResource LightBlue}"/>
-            </Label.Foreground>
-        </Label>
-        <PasswordBox Template="{StaticResource Passwordbox}" HorizontalAlignment="Left" Margin="39,285,0,288" 
+    <Canvas>
+        <Grid x:Name="register_grid1" HorizontalAlignment="Left" Height="434" VerticalAlignment="Top" Width="246" Canvas.Left="39" Canvas.Top="48" Opacity="100" IsEnabled="True" Visibility="Collapsed">
+            <Label x:Name="welcome" Content="Registration" VerticalAlignment="Top" Height="59" FontSize="36" Margin="20,10,20,0">
+                <Label.Foreground>
+                    <SolidColorBrush Color="{DynamicResource LightBlue}"/>
+                </Label.Foreground>
+            </Label>
+            <TextBox x:Name="reg_username" Template="{StaticResource TextBoxBaseControlTemplate}" Height="30" Margin="0,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" BorderBrush="#FF142C78" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="10">
+                <TextBox.Background>
+                    <SolidColorBrush Color="{DynamicResource Gray}"/>
+                </TextBox.Background>
+            </TextBox>
+            <Label Content="Enter username:" Height="28" Margin="0,140,99,0" VerticalAlignment="Top" Background="#00000000">
+                <Label.Foreground>
+                    <SolidColorBrush Color="{DynamicResource LightBlue}"/>
+                </Label.Foreground>
+            </Label>
+            <Label Content="Enter password:" Height="28" Margin="0,256,150,0" VerticalAlignment="Top" Background="#00000000">
+                <Label.Foreground>
+                    <SolidColorBrush Color="{DynamicResource LightBlue}"/>
+                </Label.Foreground>
+            </Label>
+            <PasswordBox x:Name="reg_password" Template="{StaticResource Passwordbox}" HorizontalAlignment="Left" Margin="0,284,0,120" 
                      BorderBrush="#FF707070" 
                      Foreground="White" 
-                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="242" FontSize="10" >
-            <PasswordBox.Background>
-                <SolidColorBrush Color="{DynamicResource Gray}"/>
-            </PasswordBox.Background>
-        </PasswordBox>
-        <Button   Content="Sign in" Height="30" Margin="39,351,39,0" VerticalAlignment="Top" BorderBrush="{x:Null}" FontSize="14" Click="Button_Click_1" >
+                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="246" FontSize="10" >
+                <PasswordBox.Background>
+                    <SolidColorBrush Color="{DynamicResource Gray}"/>
+                </PasswordBox.Background>
+            </PasswordBox>
+            <Button   Content="Register" Height="30" Margin="0,404,0,0" VerticalAlignment="Top" FontSize="14" Click="Button_Click_1"  >
+                <Button.BorderBrush>
+                    <SolidColorBrush Color="{DynamicResource DarkGreen}"/>
+                </Button.BorderBrush>
+                <Button.Foreground>
+                    <SolidColorBrush Color="{DynamicResource LightBlue}"/>
+                </Button.Foreground>
+
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border CornerRadius="15"
+                        
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        Height="{TemplateBinding Height}"
+                        Width="{TemplateBinding Width}">
+
+                            <Border.Background>
+                                <SolidColorBrush x:Name="BackgroundColor1" Color="{DynamicResource DarkGray}" />
+                            </Border.Background>
+                            <Border.BorderBrush>
+                                <SolidColorBrush x:Name="BorderColor" Color="{DynamicResource DarkGreen}"/>
+                            </Border.BorderBrush>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal" >
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="BackgroundColor1" 
+                                            Storyboard.TargetProperty="Color" 
+                                            To="{StaticResource DarkGray}" Duration="0:0:0.150" />
+                                            <ColorAnimation Storyboard.TargetName="BorderColor" Storyboard.TargetProperty="Color"
+                                                        To="{StaticResource LightBlue}" Duration="0:0:0.150"/>
+
+                                        </Storyboard>
+
+                                    </VisualState>
+                                    <VisualState x:Name="MouseOver">
+                                        <Storyboard>
+
+                                            <ColorAnimation Storyboard.TargetName="BackgroundColor1" 
+                                            Storyboard.TargetProperty="Color" 
+                                            To="{StaticResource Gray}" Duration="0:0:0.150" />
+                                            <ColorAnimation Storyboard.TargetName="BorderColor" Storyboard.TargetProperty="Color"
+                                                        To="{StaticResource Green}" Duration="0:0:0.150"/>
+
+
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <ContentControl Margin="{TemplateBinding Padding}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Content="{TemplateBinding Content}" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+
+            </Button>
+            <TextBox x:Name="reg_email" Template="{StaticResource TextBoxBaseControlTemplate}" Height="30" Margin="0,226,0,0" TextWrapping="Wrap" VerticalAlignment="Top" BorderBrush="#FF142C78" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="10">
+                <TextBox.Background>
+                    <SolidColorBrush Color="{DynamicResource Gray}"/>
+                </TextBox.Background>
+            </TextBox>
+            <Label Content="Enter email:" Height="28" Margin="0,198,99,0" VerticalAlignment="Top" Background="#00000000">
+                <Label.Foreground>
+                    <SolidColorBrush Color="{DynamicResource LightBlue}"/>
+                </Label.Foreground>
+            </Label>
+            <Label Content="Repeat password:" Height="28" Margin="0,314,142,0" VerticalAlignment="Top" Background="#00000000">
+                <Label.Foreground>
+                    <SolidColorBrush Color="{DynamicResource LightBlue}"/>
+                </Label.Foreground>
+            </Label>
+            <PasswordBox x:Name="reg_rep_password" Template="{StaticResource Passwordbox}" HorizontalAlignment="Left" Margin="0,342,0,62" 
+                BorderBrush="#FF707070" 
+                Foreground="White" 
+                HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="246" FontSize="10" >
+                <PasswordBox.Background>
+                    <SolidColorBrush Color="{DynamicResource Gray}"/>
+                </PasswordBox.Background>
+            </PasswordBox>
+            <TextBox x:Name="reg_name" Template="{StaticResource TextBoxBaseControlTemplate}" Height="30" Margin="0,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" BorderBrush="#FF142C78" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="10">
+                <TextBox.Background>
+                    <SolidColorBrush Color="{DynamicResource Gray}"/>
+                </TextBox.Background>
+            </TextBox>
+            <Label Content="Enter your name:" Height="28" Margin="0,82,99,0" VerticalAlignment="Top" Background="#00000000">
+                <Label.Foreground>
+                    <SolidColorBrush Color="{DynamicResource LightBlue}"/>
+                </Label.Foreground>
+            </Label>
+
+        </Grid>
+
+        <Grid x:Name="login_grid1" HorizontalAlignment="Left" Height="356" VerticalAlignment="Top" Width="246" Visibility="Visible" Canvas.Left="39" Canvas.Top="39">
+            <Label x:Name="welcome_lbl" Content="Welcome!" VerticalAlignment="Top" Height="86" FontSize="54">
+                <Label.Foreground>
+                    <SolidColorBrush Color="{DynamicResource LightBlue}"/>
+                </Label.Foreground>
+            </Label>
+            <TextBox x:Name="username_or_email" Template="{StaticResource TextBoxBaseControlTemplate}" Height="30" Margin="0,172,0,0" TextWrapping="Wrap" VerticalAlignment="Top" BorderBrush="#FF142C78" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="10">
+                <TextBox.Background>
+                    <SolidColorBrush Color="{DynamicResource Gray}"/>
+                </TextBox.Background>
+            </TextBox>
+            <Label Content="Enter username or email:" Height="28" Margin="49,144,50,0" VerticalAlignment="Top" Background="#00000000">
+                <Label.Foreground>
+                    <SolidColorBrush Color="{DynamicResource LightBlue}"/>
+                </Label.Foreground>
+            </Label>
+            <Label Content="Enter password:" Height="28" Margin="75,202,75,0" VerticalAlignment="Top" Background="#00000000">
+                <Label.Foreground>
+                    <SolidColorBrush Color="{DynamicResource LightBlue}"/>
+                </Label.Foreground>
+            </Label>
+            <PasswordBox x:Name="password_box" Template="{StaticResource Passwordbox}" HorizontalAlignment="Left" Margin="0,230,0,96" 
+                     BorderBrush="#FF707070" 
+                     Foreground="White" 
+                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="246" FontSize="10" >
+                <PasswordBox.Background>
+                    <SolidColorBrush Color="{DynamicResource Gray}"/>
+                </PasswordBox.Background>
+            </PasswordBox>
+            <Button x:Name="sign_in"   Content="Sign in" Height="30" Margin="0,288,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" FontSize="14" Click="sign_in_Click" >
+                <Button.Foreground>
+                    <SolidColorBrush Color="{DynamicResource DarkGray}"/>
+                </Button.Foreground>
+
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="15"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                Height="{TemplateBinding Height}"
+                Width="{TemplateBinding Width}">
+
+                            <Border.Background>
+                                <SolidColorBrush x:Name="BackgroundColor" Color="{DynamicResource LightBlue}" />
+                            </Border.Background>
+                            <ContentControl Margin="{TemplateBinding Padding}"
+                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                    Content="{TemplateBinding Content}" />
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal" >
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="BackgroundColor" 
+                                                Storyboard.TargetProperty="Color" 
+                                                To="{StaticResource LightBlue}" Duration="0:0:0.150" />
+
+                                        </Storyboard>
+
+                                    </VisualState>
+                                    <VisualState x:Name="MouseOver">
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="BackgroundColor" 
+                                                Storyboard.TargetProperty="Color" 
+                                                To="{StaticResource DarkGreen}" Duration="0:0:0.150" />
+
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+
+            </Button>
+            <Button x:Name="new_register_btn"   Content="Register" Height="30" Margin="0,323,0,0" VerticalAlignment="Top" FontSize="14" Click="New_register_btn_Click"  >
+                <Button.BorderBrush>
+                    <SolidColorBrush Color="{DynamicResource DarkGreen}"/>
+                </Button.BorderBrush>
+                <Button.Foreground>
+                    <SolidColorBrush Color="{DynamicResource LightBlue}"/>
+                </Button.Foreground>
+
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border CornerRadius="15"
+                        
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        Height="{TemplateBinding Height}"
+                        Width="{TemplateBinding Width}">
+
+                            <Border.Background>
+                                <SolidColorBrush x:Name="BackgroundColor1" Color="{DynamicResource DarkGray}" />
+                            </Border.Background>
+                            <Border.BorderBrush>
+                                <SolidColorBrush x:Name="BorderColor" Color="{DynamicResource DarkGreen}"/>
+                            </Border.BorderBrush>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal" >
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="BackgroundColor1" 
+                                            Storyboard.TargetProperty="Color" 
+                                            To="{StaticResource DarkGray}" Duration="0:0:0.150" />
+                                            <ColorAnimation Storyboard.TargetName="BorderColor" Storyboard.TargetProperty="Color"
+                                                        To="{StaticResource LightBlue}" Duration="0:0:0.150"/>
+
+                                        </Storyboard>
+
+                                    </VisualState>
+                                    <VisualState x:Name="MouseOver">
+                                        <Storyboard>
+
+                                            <ColorAnimation Storyboard.TargetName="BackgroundColor1" 
+                                            Storyboard.TargetProperty="Color" 
+                                            To="{StaticResource Gray}" Duration="0:0:0.150" />
+                                            <ColorAnimation Storyboard.TargetName="BorderColor" Storyboard.TargetProperty="Color"
+                                                        To="{StaticResource Green}" Duration="0:0:0.150"/>
+
+
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <ContentControl Margin="{TemplateBinding Padding}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Content="{TemplateBinding Content}" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+
+            </Button>
+        </Grid>
+        <Button   Content="&#xF00D;" Height="39" VerticalAlignment="Top" BorderBrush="{x:Null}" FontSize="22" Click="Button_Click" Canvas.Left="281" Width="39" FontFamily="Font Awesome 5 Pro Light" >
             <Button.Foreground>
-                <SolidColorBrush Color="{DynamicResource DarkGray}"/>
+                <SolidColorBrush Color="{DynamicResource LightBlue}"/>
             </Button.Foreground>
 
             <Button.Template>
                 <ControlTemplate TargetType="Button">
-                    <Border CornerRadius="15"
+                    <Border 
                             BorderBrush="{TemplateBinding BorderBrush}"
                 BorderThickness="{TemplateBinding BorderThickness}"
                 Height="{TemplateBinding Height}"
                 Width="{TemplateBinding Width}">
 
                         <Border.Background>
-                            <SolidColorBrush x:Name="BackgroundColor" Color="{DynamicResource LightBlue}" />
+                            <SolidColorBrush x:Name="BackgroundColor" Color="{DynamicResource DarkGray}" />
                         </Border.Background>
                         <ContentControl Margin="{TemplateBinding Padding}"
                     HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -122,25 +362,72 @@
                                     <Storyboard>
                                         <ColorAnimation Storyboard.TargetName="BackgroundColor" 
                                                 Storyboard.TargetProperty="Color" 
-                                                To="{StaticResource LightBlue}" Duration="0:0:0.150" />
+                                                To="{StaticResource DarkGray}" Duration="0:0:0.150" />
 
                                     </Storyboard>
 
                                 </VisualState>
-                            <VisualState x:Name="MouseOver">
-                                <Storyboard>
-                                    <ColorAnimation Storyboard.TargetName="BackgroundColor" 
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <ColorAnimation Storyboard.TargetName="BackgroundColor" 
                                                 Storyboard.TargetProperty="Color" 
-                                                To="{StaticResource DarkGreen}" Duration="0:0:0.150" />
-                                   
-                                </Storyboard>
-                            </VisualState>
-                        </VisualStateGroup>
+                                                To="{StaticResource Red}" Duration="0:0:0.150" />
+
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
                     </Border>
                 </ControlTemplate>
             </Button.Template>
 
         </Button>
-    </Grid>
+        <Button  x:Name="back_btn" Content="&#xF060;" Height="39" VerticalAlignment="Top" BorderBrush="{x:Null}" FontSize="18" Width="39" FontFamily="Font Awesome 5 Pro Light" Visibility="Hidden" Click="Back_btn_Click" >
+            <Button.Foreground>
+                <SolidColorBrush Color="{DynamicResource LightGray}"/>
+            </Button.Foreground>
+
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border 
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        Height="{TemplateBinding Height}"
+                        Width="{TemplateBinding Width}">
+
+                        <Border.Background>
+                            <SolidColorBrush x:Name="BackgroundColor" Color="{DynamicResource ResourceKey=DarkGray}" />
+                        </Border.Background>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal" >
+                                    <Storyboard>
+                                        <ColorAnimation Storyboard.TargetName="BackgroundColor" 
+                                            Storyboard.TargetProperty="Color" 
+                                            To="{StaticResource DarkGray}" Duration="0:0:0.150" />
+
+                                    </Storyboard>
+
+                                </VisualState>
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <ColorAnimation Storyboard.TargetName="BackgroundColor" 
+                                            Storyboard.TargetProperty="Color" 
+                                            To="{StaticResource Gray}" Duration="0:0:0.150" />
+
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <ContentControl Margin="{TemplateBinding Padding}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Content="{TemplateBinding Content}" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+
+        </Button>
+
+    </Canvas>
 </Window>

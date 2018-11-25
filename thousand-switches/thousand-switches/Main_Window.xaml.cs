@@ -22,7 +22,15 @@ namespace thousand_switches
         public Main_Window()
         {
             InitializeComponent();
+            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
+            //this.Visibility = Visibility.Hidden;
         }
+
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
+
 
 
     }
