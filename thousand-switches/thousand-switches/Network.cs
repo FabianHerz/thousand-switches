@@ -33,18 +33,24 @@ namespace thousand_switches
 
         }
 
+        // METHOD ADD BY MARIIA.
         public void AddEquipmentInStruct(string Equipment, string Name , string IP ,int RouterNumber, int SwitchNumber)
-        {
-
-           
+        {         
             switch (Equipment)
             {
                 case "Router":
-                    Router R = new Router(Name, IP, RouterNumber );
-                   
+                    Router R = new Router(Name, IP, RouterNumber);                
                     NS.Add( R.AddRouter());
                     break;
-
+                    // TODO проверить, что создан роутер для данного свича
+                case "Switch":
+                    Switch SW = new Switch(Name, IP, RouterNumber, SwitchNumber);
+                    NS[RouterNumber] = SW.AddSwitch(NS.ElementAt(RouterNumber));               
+                    break;
+                case "PC":
+                    PC P = new PC(Name, IP, RouterNumber, SwitchNumber);
+                    NS[RouterNumber] = P.AddPC(NS[RouterNumber]);
+                    break;
             }
 
         }

@@ -59,8 +59,12 @@ namespace thousand_switches
             
             if (Data.log_in(username_or_email.Text, password_box.Password))
             {
-                //MUST DELETE. USE FOR TEST          
+               
+                //MUST DELETE. USE FOR TEST 
+                
                 NW.AddEquipmentInStruct("Router", "Router1", "123.1230", 1, 1);
+                NW.AddEquipmentInStruct("Switch", "Switch1", "123.121", 0, 2);
+                NW.AddEquipmentInStruct("PC", "PC1", "121121", 0, 3);
               
 
 
