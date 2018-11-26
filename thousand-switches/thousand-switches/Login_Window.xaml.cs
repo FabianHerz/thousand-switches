@@ -14,6 +14,10 @@ namespace thousand_switches
     /// </summary>
     public partial class MainWindow : Window
     {
+        // CREATE GLOBAL NETWORK STRUCTURE BY MARIIA.
+        Network NW = new Network();
+    
+
         public MainWindow()
         {
             InitializeComponent();
@@ -55,10 +59,14 @@ namespace thousand_switches
             
             if (Data.log_in(username_or_email.Text, password_box.Password))
             {
+                //MUST DELETE. USE FOR TEST          
+                NW.AddEquipmentInStruct("Router", "Router1", "123.1230", 1, 1);
+              
 
-                Main_Window new_window = new Main_Window();
-                this.Close();
-                new_window.Show();
+
+              //  Main_Window new_window = new Main_Window();
+              //  this.Close();
+               // new_window.Show();
             }
         }
         

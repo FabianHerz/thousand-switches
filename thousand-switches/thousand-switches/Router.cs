@@ -11,6 +11,7 @@ namespace thousand_switches
         String Name, IP;
         int RouterNumber;
 
+       
         public Router(string Name, string IP, int RouterNumber)
         {
             this.Name = Name;
@@ -18,5 +19,12 @@ namespace thousand_switches
             this.RouterNumber = RouterNumber;
         }
 
+        public  NetworcStruct  AddRouter()
+        {
+            NetworcStruct NS = new NetworcStruct(this, new List<Switch>(), new List<PC>());  
+            return NS;
+        }
+
     }
 }
+

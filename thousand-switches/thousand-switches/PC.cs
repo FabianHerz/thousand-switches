@@ -10,11 +10,18 @@ namespace thousand_switches
     {
         String Name, IP;
         int SwitchNumber;
+        List<PC> PCList = new List<PC>();
         public PC(string Name, string IP, int SwitchNumber)
         {
             this.Name = Name;
             this.IP = IP;
             this.SwitchNumber = SwitchNumber;
         }
+
+        //private List<PC> AddPC(int SwitchNumber)
+        //{
+            
+            
+        //}
     }
 }
