@@ -27,8 +27,8 @@ namespace thousand_switches
             BinaryFormatter formatter = new BinaryFormatter();
 
             List<Admin> dat = new List<Admin>();
-            if (File.Exists("./admin_list.dat"))
-                using (FileStream fs = new FileStream("./admin_list.dat", FileMode.OpenOrCreate))
+            if (File.Exists("../../admin_list.dat"))
+                using (FileStream fs = new FileStream("../../admin_list.dat", FileMode.OpenOrCreate))
                 {
                     dat = (List<Admin>)formatter.Deserialize(fs);
                 }
@@ -37,8 +37,6 @@ namespace thousand_switches
         }
         public static bool log_in(string email_or_username, string password)
         {
-
-            
             foreach (Admin temp in adminList)
             {
                 if (temp.email == email_or_username || temp.username == email_or_username)
