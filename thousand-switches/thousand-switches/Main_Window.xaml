@@ -689,7 +689,7 @@
             <Grid.Background>
                 <SolidColorBrush Color="{DynamicResource Gray}"/>
             </Grid.Background>
-            <Button x:Name="Network" Content="&#xF0AC;" HorizontalAlignment="Left" Height="50" Margin="0,16,0,0" VerticalAlignment="Top" Width="50" BorderBrush="{x:Null}" FontFamily="Font Awesome 5 Pro Light" FontSize="24" Padding="0">
+            <Button x:Name="Network" Content="&#xF0AC;" Height="50" Margin="0,16,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" FontFamily="Font Awesome 5 Pro Light" FontSize="24" Padding="0" Click="Network_click">
                 <Button.Foreground>
                     <SolidColorBrush Color="{DynamicResource LightBlue}"/>
                 </Button.Foreground>
@@ -734,7 +734,7 @@
                     </ControlTemplate>
                 </Button.Template>
             </Button>
-            <Button Content="&#xF017;" HorizontalAlignment="Left" Height="50" Margin="0,66,0,0" VerticalAlignment="Top" Width="50" BorderBrush="{x:Null}" FontFamily="Font Awesome 5 Pro Light" FontSize="26" Padding="0">
+            <Button x:Name="buttonHistory" Content="&#xF017;" Height="50" Margin="0,66,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" FontFamily="Font Awesome 5 Pro Light" FontSize="26" Padding="0" Click="buttonHistory_Click" HorizontalAlignment="Right" Width="50">
                 <Button.Foreground>
                     <SolidColorBrush Color="{DynamicResource LightGray}"/>
                 </Button.Foreground>
@@ -752,10 +752,7 @@
                             <Border.Background>
                                 <SolidColorBrush x:Name="BorderColo1r"  />
                             </Border.Background>
-                            <ContentControl Margin="{TemplateBinding Padding}"
-                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                    Content="{TemplateBinding Content}" />
+                            <Canvas Height="48" Margin="0.2,0.2,-0.2,-0.2" VerticalAlignment="Top"/>
 
                             <VisualStateManager.VisualStateGroups>
                                 <VisualStateGroup Name="CommonStates">
@@ -780,7 +777,10 @@
                 </Button.Template>
             </Button>
         </Grid>
-        <Canvas x:Name="canvas_net" Grid.Column="1" HorizontalAlignment="Left" Height="768" VerticalAlignment="Top" Width="1046"/>
+        <Canvas x:Name="canvas_net" Grid.Column="1" HorizontalAlignment="Left" Height="768" VerticalAlignment="Top" Width="1046">
+
+        </Canvas>
+        <Canvas x:Name="canvas_history" Canvas.Top="10" Canvas.Left="10" Grid.ColumnSpan="2" Grid.Column="1" Margin="0.4,48,11.2,10"/>
 
     </Grid>
 </Window>

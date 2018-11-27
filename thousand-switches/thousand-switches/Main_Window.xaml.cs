@@ -22,12 +22,15 @@ namespace thousand_switches
         private const int Duration = 400;
         public static string added_type;
         object selected_object;
+
+        List<History> history_list = new List<History>();
+
         public Main_Window()
         {
             InitializeComponent();
             init();
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
-            //this.Visibility = Visibility.Hidden;
+            canvas_history.Visibility = Visibility.Collapsed;
         }
         void init()
         {
@@ -159,6 +162,7 @@ namespace thousand_switches
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+            Application.Current.Shutdown();
         }
 
         private void Connect_Switch_Click(object sender, RoutedEventArgs e)
@@ -396,6 +400,35 @@ namespace thousand_switches
         {
             selected_object = (sender as Button).GetBindingExpression(Control.OpacityProperty).DataItem;
             (sender as Button).Template = ((ControlTemplate)this.FindResource("buttonon"));
+
+        }
+
+      
+        private void Network_click(object sender, RoutedEventArgs e)
+        {
+            canvas_history.Visibility = Visibility.Collapsed;
+            canvas_net.Visibility = Visibility.Visible;
+        }
+
+        private void buttonHistory_Click(object sender, RoutedEventArgs e)
+        {
+            canvas_history.Visibility = Visibility.Visible;
+            canvas_net.Visibility = Visibility.Collapsed;
+
+
+            History h1 = new History("add", "switch1", "router1");
+            History h2 = new History("delete", "Pc", "switch1");
+
+            history_list.Add(h1);
+            history_list.Add(h2);
+
+            for (int index = 0; index < history_list.Count; index++)
+            { 
+                canvas_history.Children.Add(ServicesCreateObject.create_history_grid(history_list[index], 90, 90 + index * 62 ));
+            }
+
+        
+
 
         }
 

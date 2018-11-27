@@ -16,6 +16,41 @@ namespace thousand_switches
     class ServicesCreateObject
     {
 
+        public static Grid create_history_grid(History h, int left, int top )
+        {
+            Grid grid = new Grid();
+            // grid.Name = "history_element";
+            grid.HorizontalAlignment = HorizontalAlignment.Left;
+            grid.VerticalAlignment = VerticalAlignment.Top;
+            grid.Height = 42;
+            grid.Width = 1134;
+
+            // Create rectangle.
+            Rectangle rect = new Rectangle();
+            Thickness margin = rect.Margin;
+            margin.Left = 0;
+            margin.Top = 4;
+            margin.Bottom = 10;
+            margin.Right = 250;
+            rect.Margin = margin;
+            rect.Fill = Styles.gray;
+            rect.RadiusX = 20;
+            rect.RadiusY = 20;
+            // Add rectangle in Grid
+            grid.Children.Add(rect);
+            grid.Children.Add(create_history_lbl(h.ToString()));
+
+            // Add grin in Canvas.
+            grid.Visibility = Visibility.Visible;
+            Canvas.SetLeft(grid, left);
+            Canvas.SetTop(grid, top);
+                
+
+            grid.Effect = create_shadow();
+
+            return grid;
+
+        }
 
 
         public static Grid new_object(object obj)
@@ -152,6 +187,46 @@ namespace thousand_switches
             lbl.FontSize = 20;
             return lbl;
         }
+
+        public static Label create_date_history_lbl( string content)
+        {
+            Label lbl = new Label();
+            lbl.HorizontalAlignment = HorizontalAlignment.Left;
+            lbl.VerticalAlignment = VerticalAlignment.Top;
+            Thickness margin = lbl.Margin;
+            margin.Left = 10;
+            margin.Top = 4;
+            lbl.Margin = margin;
+            Thickness pad = lbl.Padding;
+            pad.Bottom = 0;
+            pad.Left = 0;
+            pad.Right = 0;
+            pad.Top = 0;
+            lbl.Padding = pad;
+            lbl.FontFamily = new FontFamily("Font Awesome 5 Pro Regular");
+            lbl.Content = content;
+            lbl.Foreground = Styles.lightgray;
+            lbl.FontSize = 16;
+            return lbl;
+        }
+
+        public static Label create_history_lbl(string content)
+        {
+            Label lbl = new Label();
+            lbl.HorizontalAlignment = HorizontalAlignment.Left;
+            lbl.VerticalAlignment = VerticalAlignment.Top;
+            Thickness margin = lbl.Margin;
+            margin.Left = 20;
+            margin.Top = 4;
+            lbl.Margin = margin;
+            lbl.FontFamily = new FontFamily("Font Awesome 5 Pro Regular");
+            lbl.Content = content;
+            lbl.Foreground = Styles.lightgray;
+            lbl.FontSize = 16;
+            return lbl;
+        }
+
+
         public static Ellipse create_ellipse(string Name)
         {
             Ellipse elipse = new Ellipse();
@@ -176,12 +251,13 @@ namespace thousand_switches
         public int top;
         public Coordinats()
         {
-
         }
         public Coordinats(int left,int top)
         {
             this.left = left;
             this.top = top;
         }
+
+      
     }
 }
