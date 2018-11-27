@@ -12,25 +12,165 @@
         <Color x:Key="LightGray">#C1C1C1</Color>
         <Color x:Key="Gray">#3B3B3B</Color>
         <Color x:Key="Green">#72CF6F</Color>
-        <Color x:Key="Red">#E96969</Color>
+        <Color x:Key="Red">#FFB80000</Color>
         <Color x:Key="LightBlue">#3BECF2</Color>
+        <Color x:Key="DarkGreen">#FF3BAFAC</Color>
+        <ControlTemplate x:Key="buttonon"  TargetType="{x:Type Button}">
+            <Border CornerRadius="15"
+                        
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        Height="{TemplateBinding Height}"
+                        Width="{TemplateBinding Width}">
+
+                <Border.Background>
+                    <SolidColorBrush x:Name="BackgroundColor1" Color="{DynamicResource Gray}" />
+                </Border.Background>
+                <Border.BorderBrush>
+                    <SolidColorBrush x:Name="BorderColor" Color="{DynamicResource LightGray}"/>
+                </Border.BorderBrush>
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" >
+                            <Storyboard>
+                                <ColorAnimation Storyboard.TargetName="BackgroundColor1" 
+                                            Storyboard.TargetProperty="Color" 
+                                            To="{StaticResource Gray}" Duration="0:0:0.150" />
+                                <ColorAnimation Storyboard.TargetName="BorderColor" Storyboard.TargetProperty="Color"
+                                            To="{StaticResource LightBlue}" Duration="0:0:0.150"/>
+
+                            </Storyboard>
+
+                        </VisualState>
+                        <VisualState x:Name="MouseOver">
+                            <Storyboard>
+
+                                <ColorAnimation Storyboard.TargetName="BackgroundColor1" 
+                                            Storyboard.TargetProperty="Color" 
+                                            To="{StaticResource DarkGray}" Duration="0:0:0.150" />
+                                <ColorAnimation Storyboard.TargetName="BorderColor" Storyboard.TargetProperty="Color"
+                                            To="{StaticResource LightBlue}" Duration="0:0:0.150"/>
+
+
+                            </Storyboard>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+                <ContentControl Margin="{TemplateBinding Padding}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Content="{TemplateBinding Content}" />
+            </Border>
+        </ControlTemplate>
+
+        <ControlTemplate x:Key="buttonsimle"  TargetType="{x:Type Button}">
+            <Border CornerRadius="15"
+                        
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        Height="{TemplateBinding Height}"
+                        Width="{TemplateBinding Width}">
+
+                <Border.Background>
+                    <SolidColorBrush x:Name="BackgroundColor1" Color="{DynamicResource Gray}" />
+                </Border.Background>
+                <Border.BorderBrush>
+                    <SolidColorBrush x:Name="BorderColor" Color="{DynamicResource LightGray}"/>
+                </Border.BorderBrush>
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" >
+                            <Storyboard>
+                                <ColorAnimation Storyboard.TargetName="BackgroundColor1" 
+                                            Storyboard.TargetProperty="Color" 
+                                            To="{StaticResource Gray}" Duration="0:0:0.150" />
+                                <ColorAnimation Storyboard.TargetName="BorderColor" Storyboard.TargetProperty="Color"
+                                            To="{StaticResource LightGray}" Duration="0:0:0.150"/>
+
+                            </Storyboard>
+
+                        </VisualState>
+                        <VisualState x:Name="MouseOver">
+                            <Storyboard>
+
+                                <ColorAnimation Storyboard.TargetName="BackgroundColor1" 
+                                            Storyboard.TargetProperty="Color" 
+                                            To="{StaticResource DarkGray}" Duration="0:0:0.150" />
+                                <ColorAnimation Storyboard.TargetName="BorderColor" Storyboard.TargetProperty="Color"
+                                            To="{StaticResource LightGray}" Duration="0:0:0.150"/>
+
+
+                            </Storyboard>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+                <ContentControl Margin="{TemplateBinding Padding}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Content="{TemplateBinding Content}" />
+            </Border>
+        </ControlTemplate>
+        <ControlTemplate x:Key="TextBoxBaseControlTemplateSmall" TargetType="{x:Type TextBoxBase}">
+            <Border Background="{TemplateBinding Background}" 
+                x:Name="Bd" 
+                BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="12">
+                <ScrollViewer x:Name="PART_ContentHost"/>
+            </Border>
+
+
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" TargetName="Bd"/>
+                    <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                </Trigger>
+
+                <Trigger Property="Width" Value="Auto">
+                    <Setter Property="MinWidth" Value="100"/>
+                </Trigger>
+                <Trigger Property="Height" Value="Auto">
+                    <Setter Property="MinHeight" Value="20"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+
+        <ControlTemplate x:Key="TextBoxBaseControlTemplate" TargetType="{x:Type TextBoxBase}">
+            <Border Background="{TemplateBinding Background}" 
+                x:Name="Bd" 
+                BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="15">
+                <ScrollViewer x:Name="PART_ContentHost"/>
+            </Border>
+
+
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" TargetName="Bd"/>
+                    <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                </Trigger>
+
+                <Trigger Property="Width" Value="Auto">
+                    <Setter Property="MinWidth" Value="100"/>
+                </Trigger>
+                <Trigger Property="Height" Value="Auto">
+                    <Setter Property="MinHeight" Value="20"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+
     </Window.Resources>
-   
+
     <Window.Triggers>
         <EventTrigger RoutedEvent="Loaded">
-            
+
             <BeginStoryboard>
                 <Storyboard Duration="0:0:1" Storyboard.TargetProperty="Opacity">
                     <DoubleAnimation From="0" To="1" Duration="0:0:0.350"/>
                 </Storyboard>
             </BeginStoryboard>
         </EventTrigger>
-            
+
 
     </Window.Triggers>
 
     <Window.Background>
-        <SolidColorBrush Color="{DynamicResource DarkGray}"/>
+        <SolidColorBrush Color="#FF232323"/>
     </Window.Background>
     <Grid Margin="0">
         <Grid.ColumnDefinitions>
@@ -40,15 +180,511 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="2" Margin="0">
             <Grid.Effect>
-                <DropShadowEffect Direction="180" Opacity="0.4"/>
+                <DropShadowEffect Direction="180" Opacity="0.15" BlurRadius="2"/>
             </Grid.Effect>
+            <Canvas/>
+            <Button x:Name="exit"   Content="&#xF00D;" Height="39" VerticalAlignment="Top" BorderBrush="{x:Null}" FontSize="22" FontFamily="Font Awesome 5 Pro Light" Margin="231,0,0,0" Click="Exit_Click" >
+                <Button.Foreground>
+                    <SolidColorBrush Color="{DynamicResource LightBlue}"/>
+                </Button.Foreground>
+
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border 
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Height="{TemplateBinding Height}"
+                            Width="{TemplateBinding Width}">
+
+                            <Border.Background>
+                                <SolidColorBrush x:Name="BackgroundColor" Color="{DynamicResource Gray}" />
+                            </Border.Background>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal" >
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="BackgroundColor" 
+                                                Storyboard.TargetProperty="Color" 
+                                                To="{StaticResource Gray}" Duration="0:0:0.150" />
+
+                                        </Storyboard>
+
+                                    </VisualState>
+                                    <VisualState x:Name="MouseOver">
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="BackgroundColor" 
+                                                Storyboard.TargetProperty="Color" 
+                                                To="{StaticResource Red}" Duration="0:0:0.150" />
+
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <ContentControl Margin="{TemplateBinding Padding}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Content="{TemplateBinding Content}" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+
+            </Button>
+            <Button x:Name="delete_Copy" Height="40" VerticalAlignment="Top"  FontSize="18" Content="&#xF011;" FontFamily="Font Awesome 5 Pro Regular" Click="Delete_Click" Margin="220,718,10,0" >
+
+                <Button.Foreground>
+                    <SolidColorBrush Color="{DynamicResource Green}"/>
+                </Button.Foreground>
+
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border CornerRadius="20"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Height="{TemplateBinding Height}"
+                            Width="{TemplateBinding Width}">
+
+                            <Border.Background>
+                                <SolidColorBrush x:Name="BackgroundColor" Color="{DynamicResource DarkGray}" />
+                            </Border.Background>
+                            <Border.BorderBrush>
+                                <SolidColorBrush x:Name="BorderColor" Color="{DynamicResource Green}" />
+                            </Border.BorderBrush>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal" >
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="BackgroundColor" 
+                                                Storyboard.TargetProperty="Color" 
+                                                To="{StaticResource DarkGray}" Duration="0:0:0.150" />
+                                            <ColorAnimation Storyboard.TargetName="BorderColor" 
+                                                Storyboard.TargetProperty="Color" 
+                                                To="{StaticResource DarkGray}" Duration="0:0:0.150" />
+                                        </Storyboard>
+
+                                    </VisualState>
+                                    <VisualState x:Name="MouseOver">
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="BackgroundColor" 
+                                                Storyboard.TargetProperty="Color" 
+                                                To="{StaticResource DarkGray}" Duration="0:0:0.150" />
+                                            <ColorAnimation Storyboard.TargetName="BorderColor" 
+                                                Storyboard.TargetProperty="Color" 
+                                                To="{StaticResource Green}" Duration="0:0:0.150" />
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <ContentControl Margin="{TemplateBinding Padding}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Content="{TemplateBinding Content}" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+
+            </Button>
+            <Button x:Name="exit_Copy"   Content="&#xF2ED;" Height="39" VerticalAlignment="Top" BorderBrush="{x:Null}" FontSize="22" FontFamily="Font Awesome 5 Pro Solid" Margin="0,0,231,0" Click="Exit_Click" >
+                <Button.Foreground>
+                    <SolidColorBrush Color="{DynamicResource LightGray}"/>
+                </Button.Foreground>
+
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border 
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Height="{TemplateBinding Height}"
+                            Width="{TemplateBinding Width}">
+
+                            <Border.Background>
+                                <SolidColorBrush x:Name="BackgroundColor" Color="{DynamicResource Gray}" />
+                            </Border.Background>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal" >
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="BackgroundColor" 
+                                                Storyboard.TargetProperty="Color" 
+                                                To="{StaticResource Gray}" Duration="0:0:0.150" />
+
+                                        </Storyboard>
+
+                                    </VisualState>
+                                    <VisualState x:Name="MouseOver">
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="BackgroundColor" 
+                                                Storyboard.TargetProperty="Color" 
+                                                To="{StaticResource Red}" Duration="0:0:0.150" />
+
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <ContentControl Margin="{TemplateBinding Padding}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Content="{TemplateBinding Content}" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+
+            </Button>
+            <Canvas HorizontalAlignment="Left" Height="349" Margin="0,419,0,0" VerticalAlignment="Top" Width="270">
+                <Grid x:Name="add_grid" 
+                      HorizontalAlignment="Left" 
+                      Height="0" 
+                      VerticalAlignment="Top" 
+                      Width="203"  
+                      Canvas.Left="10" 
+                      Canvas.Top="164" 
+                      Visibility="Visible" RenderTransformOrigin="0.5,0.5">
+
+                    <Rectangle HorizontalAlignment="Left" Height="130"  VerticalAlignment="Top" Width="203" RadiusX="15" RadiusY="15">
+                        <Rectangle.Fill>
+                            <SolidColorBrush Color="{DynamicResource DarkGray}"/>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                    <Button x:Name="add" BorderBrush="{x:Null}" FontSize="14" Click="Add_Click" Canvas.Left="10" Canvas.Top="718" Content="Add" Margin="130,0,13,8" Height="24" VerticalAlignment="Bottom" >
+
+                        <Button.Foreground>
+                            <SolidColorBrush  Color="{DynamicResource Green}"/>
+                        </Button.Foreground>
+                        <Button.Template>
+                            <ControlTemplate TargetType="{x:Type Button}">
+
+                                <Border CornerRadius="12"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Height="{TemplateBinding Height}"
+                            Width="{TemplateBinding Width}">
+
+
+                                    <Border.Background>
+                                        <SolidColorBrush x:Name="BackgroundColor" Color="{DynamicResource Gray}" />
+                                    </Border.Background>
+
+                                    <Border.BorderBrush>
+                                        <SolidColorBrush x:Name="BorderColor" Color="{DynamicResource LightGray}" />
+                                    </Border.BorderBrush>
+                                    <VisualStateManager.VisualStateGroups>
+                                        <VisualStateGroup x:Name="CommonStates">
+                                            <VisualState x:Name="Normal" >
+                                                <Storyboard>
+                                                    <ColorAnimation Storyboard.TargetName="BackgroundColor" 
+                                                Storyboard.TargetProperty="Color" 
+                                                To="{StaticResource Gray}" Duration="0:0:0.150" />
+                                                    <ColorAnimation Storyboard.TargetName="BorderColor" 
+                                                Storyboard.TargetProperty="Color" 
+                                                To="{StaticResource DarkGray}" Duration="0:0:0.150" />
+                                                </Storyboard>
+
+                                            </VisualState>
+                                            <VisualState x:Name="MouseOver">
+                                                <Storyboard>
+                                                    <ColorAnimation Storyboard.TargetName="BackgroundColor" 
+                                                Storyboard.TargetProperty="Color" 
+                                                To="{StaticResource Gray}" Duration="0:0:0.150" />
+                                                    <ColorAnimation Storyboard.TargetName="BorderColor" 
+                                                Storyboard.TargetProperty="Color" 
+                                                To="{StaticResource LightGray}" Duration="0:0:0.150" />
+
+                                                </Storyboard>
+                                            </VisualState>
+                                        </VisualStateGroup>
+                                    </VisualStateManager.VisualStateGroups>
+                                    <ContentControl Margin="{TemplateBinding Padding}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Content="{TemplateBinding Content}" />
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+
+
+                    </Button>
+
+                    <Label Content="Name:" HorizontalAlignment="Left" Margin="10,0,0,64" Width="45" Padding="0" HorizontalContentAlignment="Right" Height="22" VerticalAlignment="Bottom" FontSize="16">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource LightGray}"/>
+                        </Label.Foreground>
+                    </Label>
+                    <Label Content="IP:" HorizontalAlignment="Left" Margin="10,0,0,37" Width="45" Padding="0" HorizontalContentAlignment="Right" Height="22" VerticalAlignment="Bottom" FontSize="16">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource LightGray}"/>
+                        </Label.Foreground>
+                    </Label>
+                    <TextBox x:Name="txt_name" Template="{StaticResource TextBoxBaseControlTemplateSmall}" Margin="60,0,13,64" TextWrapping="Wrap" BorderBrush="#FF142C78" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="14" Height="24" VerticalAlignment="Bottom">
+                        <TextBox.Background>
+                            <SolidColorBrush Color="{DynamicResource Gray}"/>
+                        </TextBox.Background>
+                    </TextBox>
+                    <TextBox x:Name="txt_ip" Template="{StaticResource TextBoxBaseControlTemplateSmall}" Margin="60,0,13,37" TextWrapping="Wrap" BorderBrush="#FF142C78" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="14" Height="24" VerticalAlignment="Bottom">
+                        <TextBox.Background>
+                            <SolidColorBrush Color="{DynamicResource Gray}"/>
+                        </TextBox.Background>
+                    </TextBox>
+
+                </Grid>
+
+                <Grid x:Name="grid_connect_Router" HorizontalAlignment="Left" Height="40" Margin="0" VerticalAlignment="Top" Width="203" Canvas.Bottom="10" Canvas.Left="10" Opacity="0.0">
+                    <Button x:Name="connect_Router" Height="40" VerticalAlignment="Top" BorderBrush="{x:Null}" FontSize="14" Click="Connect_Router_Click" Width="200" Canvas.Left="10" Canvas.Top="718" Content="Router" >
+
+                        <Button.Foreground>
+                            <SolidColorBrush Color="{DynamicResource LightGray}"/>
+                        </Button.Foreground>
+
+                        <Button.Template>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border CornerRadius="20"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Height="{TemplateBinding Height}"
+                            Width="{TemplateBinding Width}">
+
+                                    <Border.Background>
+                                        <SolidColorBrush x:Name="BackgroundColor" Color="{DynamicResource DarkGray}" />
+                                    </Border.Background>
+                                    <Border.BorderBrush>
+                                        <SolidColorBrush x:Name="BorderColor" Color="{DynamicResource DarkGray}" />
+                                    </Border.BorderBrush>
+
+                                    <VisualStateManager.VisualStateGroups>
+                                        <VisualStateGroup x:Name="CommonStates">
+                                            <VisualState x:Name="Normal" >
+                                                <Storyboard>
+                                                    <ColorAnimation Storyboard.TargetName="BackgroundColor" 
+                                                Storyboard.TargetProperty="Color" 
+                                                To="{StaticResource Gray}" Duration="0:0:0.150" />
+                                                    <ColorAnimation Storyboard.TargetName="BorderColor" 
+                                                Storyboard.TargetProperty="Color" 
+                                                To="{StaticResource LightGray}" Duration="0:0:0.150" />
+                                                </Storyboard>
+
+                                            </VisualState>
+                                            <VisualState x:Name="MouseOver">
+                                                <Storyboard>
+                                                    <ColorAnimation Storyboard.TargetName="BackgroundColor" 
+                                                Storyboard.TargetProperty="Color" 
+                                                To="{StaticResource DarkGray}" Duration="0:0:0.150" />
+                                                    <ColorAnimation Storyboard.TargetName="BorderColor" 
+                                                Storyboard.TargetProperty="Color" 
+                                                To="{StaticResource LightBlue}" Duration="0:0:0.150" />
+
+                                                </Storyboard>
+                                            </VisualState>
+                                        </VisualStateGroup>
+                                    </VisualStateManager.VisualStateGroups>
+                                    <ContentControl Margin="{TemplateBinding Padding}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Content="{TemplateBinding Content}" />
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+
+
+                    </Button>
+                    <Label Content="&#xF453;" FontFamily="Font Awesome 5 Pro Regular" FontSize="24" Padding="0" Margin="14,8,163,9" RenderTransformOrigin="0.5,0.5">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource LightGray}"/>
+                        </Label.Foreground>
+                    </Label>
+                </Grid>
+                <Grid x:Name="grid_connect_Switch" HorizontalAlignment="Left" Height="40" Margin="0" VerticalAlignment="Top" Width="203" Canvas.Bottom="10" Canvas.Left="10" Opacity="0.0">
+
+                    <Button x:Name="connect_Switch" Height="40" VerticalAlignment="Top" BorderBrush="{x:Null}" FontSize="14" Click="Connect_Switch_Click" Width="200" Canvas.Left="10" Canvas.Top="718" Content="Switch" >
+
+                        <Button.Foreground>
+                            <SolidColorBrush Color="{DynamicResource LightGray}"/>
+                        </Button.Foreground>
+
+                        <Button.Template>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border CornerRadius="20"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Height="{TemplateBinding Height}"
+                            Width="{TemplateBinding Width}">
+
+                                    <Border.Background>
+                                        <SolidColorBrush x:Name="BackgroundColor" Color="{DynamicResource DarkGray}" />
+                                    </Border.Background>
+                                    <Border.BorderBrush>
+                                        <SolidColorBrush x:Name="BorderColor" Color="{DynamicResource DarkGray}" />
+                                    </Border.BorderBrush>
+                                    <VisualStateManager.VisualStateGroups>
+                                        <VisualStateGroup x:Name="CommonStates">
+                                            <VisualState x:Name="Normal" >
+                                                <Storyboard>
+                                                    <ColorAnimation Storyboard.TargetName="BackgroundColor" 
+                                                Storyboard.TargetProperty="Color" 
+                                                To="{StaticResource Gray}" Duration="0:0:0.150" />
+                                                    <ColorAnimation Storyboard.TargetName="BorderColor" 
+                                                Storyboard.TargetProperty="Color" 
+                                                To="{StaticResource LightGray}" Duration="0:0:0.150" />
+                                                </Storyboard>
+
+                                            </VisualState>
+                                            <VisualState x:Name="MouseOver">
+                                                <Storyboard>
+                                                    <ColorAnimation Storyboard.TargetName="BackgroundColor" 
+                                                Storyboard.TargetProperty="Color" 
+                                                To="{StaticResource DarkGray}" Duration="0:0:0.150" />
+                                                    <ColorAnimation Storyboard.TargetName="BorderColor" 
+                                                Storyboard.TargetProperty="Color" 
+                                                To="{StaticResource LightBlue}" Duration="0:0:0.150" />
+
+                                                </Storyboard>
+                                            </VisualState>
+                                        </VisualStateGroup>
+                                    </VisualStateManager.VisualStateGroups>
+                                    <ContentControl Margin="{TemplateBinding Padding}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Content="{TemplateBinding Content}" />
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+
+
+                    </Button>
+                    <Label x:Name="new_connect_switch_lbl" Content="&#xF0A0;" FontFamily="Font Awesome 5 Pro Regular" FontSize="24" Padding="0" Margin="14,8,161,9">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource LightGray}"/>
+                        </Label.Foreground>
+                    </Label>
+                </Grid>
+                <Grid x:Name="grid_connect_PC" HorizontalAlignment="Left" Height="40" Margin="0" VerticalAlignment="Top" Width="203" Canvas.Bottom="10" Canvas.Left="10" Opacity="0.0">
+                    <Button x:Name="connect_PC" Height="40" VerticalAlignment="Top" BorderBrush="{x:Null}" FontSize="14" Click="Connect_PC_Click" Width="200" Canvas.Left="10" Canvas.Top="718" Content="PC" >
+
+                        <Button.Foreground>
+                            <SolidColorBrush Color="{DynamicResource LightGray}"/>
+                        </Button.Foreground>
+
+                        <Button.Template>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border CornerRadius="20"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Height="{TemplateBinding Height}"
+                            Width="{TemplateBinding Width}">
+
+                                    <Border.Background>
+                                        <SolidColorBrush x:Name="BackgroundColor" Color="{DynamicResource DarkGray}" />
+                                    </Border.Background>
+                                    <Border.BorderBrush>
+                                        <SolidColorBrush x:Name="BorderColor" Color="{DynamicResource DarkGray}" />
+                                    </Border.BorderBrush>
+                                    <VisualStateManager.VisualStateGroups>
+                                        <VisualStateGroup x:Name="CommonStates">
+                                            <VisualState x:Name="Normal" >
+                                                <Storyboard>
+                                                    <ColorAnimation Storyboard.TargetName="BackgroundColor" 
+                                                Storyboard.TargetProperty="Color" 
+                                                To="{StaticResource Gray}" Duration="0:0:0.150" />
+                                                    <ColorAnimation Storyboard.TargetName="BorderColor" 
+                                                Storyboard.TargetProperty="Color" 
+                                                To="{StaticResource LightGray}" Duration="0:0:0.150" />
+                                                </Storyboard>
+
+                                            </VisualState>
+                                            <VisualState x:Name="MouseOver">
+                                                <Storyboard>
+                                                    <ColorAnimation Storyboard.TargetName="BackgroundColor" 
+                                                Storyboard.TargetProperty="Color" 
+                                                To="{StaticResource DarkGray}" Duration="0:0:0.150" />
+                                                    <ColorAnimation Storyboard.TargetName="BorderColor" 
+                                                Storyboard.TargetProperty="Color" 
+                                                To="{StaticResource LightBlue}" Duration="0:0:0.150" />
+
+                                                </Storyboard>
+                                            </VisualState>
+                                        </VisualStateGroup>
+                                    </VisualStateManager.VisualStateGroups>
+                                    <ContentControl Margin="{TemplateBinding Padding}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Content="{TemplateBinding Content}" />
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+
+
+                    </Button>
+                    <Label Content="&#xF108;" FontFamily="Font Awesome 5 Pro Regular" FontSize="24" Padding="0" Margin="14,8,161,7">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource LightGray}"/>
+                        </Label.Foreground>
+                    </Label>
+                </Grid>
+
+                <Grid HorizontalAlignment="Left" Height="40" Margin="0" VerticalAlignment="Top" Width="203" Canvas.Bottom="10" Canvas.Left="10">
+                    <Button x:Name="new_connect" Height="40" VerticalAlignment="Top" BorderBrush="{x:Null}" FontSize="14" Click="New_connect_Click" Canvas.Left="10" Canvas.Top="718" Content="New Connect" >
+
+                        <Button.Foreground>
+                            <SolidColorBrush Color="{DynamicResource LightGray}"/>
+                        </Button.Foreground>
+
+                        <Button.Template>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border CornerRadius="20"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Height="{TemplateBinding Height}"
+                            Width="{TemplateBinding Width}">
+
+                                    <Border.Background>
+                                        <SolidColorBrush x:Name="BackgroundColor" Color="{DynamicResource DarkGray}" />
+                                    </Border.Background>
+                                    <Border.BorderBrush>
+                                        <SolidColorBrush x:Name="BorderColor" Color="{DynamicResource DarkGray}" />
+                                    </Border.BorderBrush>
+                                    <VisualStateManager.VisualStateGroups>
+                                        <VisualStateGroup x:Name="CommonStates">
+                                            <VisualState x:Name="Normal" >
+                                                <Storyboard>
+                                                    <ColorAnimation Storyboard.TargetName="BackgroundColor" 
+                                                Storyboard.TargetProperty="Color" 
+                                                To="{StaticResource DarkGray}" Duration="0:0:0.150" />
+                                                    <ColorAnimation Storyboard.TargetName="BorderColor" 
+                                                Storyboard.TargetProperty="Color" 
+                                                To="{StaticResource DarkGray}" Duration="0:0:0.150" />
+                                                </Storyboard>
+
+                                            </VisualState>
+                                            <VisualState x:Name="MouseOver">
+                                                <Storyboard>
+                                                    <ColorAnimation Storyboard.TargetName="BackgroundColor" 
+                                                Storyboard.TargetProperty="Color" 
+                                                To="{StaticResource DarkGray}" Duration="0:0:0.150" />
+                                                    <ColorAnimation Storyboard.TargetName="BorderColor" 
+                                                Storyboard.TargetProperty="Color" 
+                                                To="{StaticResource LightGray}" Duration="0:0:0.150" />
+
+                                                </Storyboard>
+                                            </VisualState>
+                                        </VisualStateGroup>
+                                    </VisualStateManager.VisualStateGroups>
+                                    <ContentControl Margin="{TemplateBinding Padding}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Content="{TemplateBinding Content}" />
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+
+
+                    </Button>
+                    <Label x:Name="new_connect_symbol" Content="plus" FontFamily="Font Awesome 5 Pro Regular" FontSize="24" Padding="0" Margin="14,7,171,8" HorizontalContentAlignment="Center">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource LightGray}"/>
+                        </Label.Foreground>
+                    </Label>
+                </Grid>
+
+            </Canvas>
             <Grid.Background>
                 <SolidColorBrush Color="{DynamicResource Gray}"/>
             </Grid.Background>
+
         </Grid>
         <Grid HorizontalAlignment="Left" Width="50">
             <Grid.Effect>
-                <DropShadowEffect Direction="353" Opacity="0.4"/>
+                <DropShadowEffect Direction="353" Opacity="0.15" BlurRadius="2"/>
             </Grid.Effect>
             <Grid.Background>
                 <SolidColorBrush Color="{DynamicResource Gray}"/>
@@ -144,6 +780,7 @@
                 </Button.Template>
             </Button>
         </Grid>
+        <Canvas x:Name="canvas_net" Grid.Column="1" HorizontalAlignment="Left" Height="768" VerticalAlignment="Top" Width="1046"/>
 
     </Grid>
 </Window>

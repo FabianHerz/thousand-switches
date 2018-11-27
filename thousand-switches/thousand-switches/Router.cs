@@ -6,17 +6,24 @@ using System.Threading.Tasks;
 
 namespace thousand_switches
 {
-    class Router : Network
+    public class Router 
     {
-        String Name, IP;
-        int RouterNumber;
-
-        public Router(string Name, string IP, int RouterNumber)
+        public String Name, IP;
+        public int row, column;
+        public List<object> list_connect = new List<object>();
+        public Router()
         {
+
+        }
+        public Router(string Name, string IP)
+        {
+
             this.Name = Name;
             this.IP = IP;
-            this.RouterNumber = RouterNumber;
         }
-
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

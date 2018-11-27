@@ -14,6 +14,8 @@ namespace thousand_switches
         BinaryFormatter formatter = new BinaryFormatter();
         public static CurrentUser user =new CurrentUser();
         public static List<Admin> adminList = new List<Admin>();
+        public static Network this_network;
+        public static List<object> equipment_router;
 
         public static void getData()
         {

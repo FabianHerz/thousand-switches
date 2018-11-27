@@ -40,10 +40,10 @@ namespace thousand_switches
             back_btn.Visibility = Visibility.Hidden;
             login_grid1.Visibility = Visibility.Visible;
             login_grid1.IsEnabled = true;
-            ServicesAnimation.up_and_show(login_grid1, 68, 48);
-            ServicesAnimation.up_and_show(register_grid1, 18, 48);
-            ServicesAnimation.opacity(register_grid1, 0.5, 0.0);
-            ServicesAnimation.opacity(login_grid1, 0.0, 1);
+            ServicesAnimation.up_and_show(login_grid1, 69, 39,Canvas.LeftProperty,500);
+            ServicesAnimation.up_and_show(register_grid1, 39, 9, Canvas.LeftProperty,500);
+            ServicesAnimation.opacity(register_grid1, 0.5, 0.0,500);
+            ServicesAnimation.opacity(login_grid1, 0.0, 1,500);
             register_grid1.Visibility = Visibility.Collapsed;
 
         }
@@ -68,10 +68,10 @@ namespace thousand_switches
             back_btn.Visibility = Visibility.Visible;
             register_grid1.Visibility = Visibility.Visible;
             register_grid1.IsEnabled = true;
-            ServicesAnimation.up_and_show(register_grid1, 18, 48);
-            ServicesAnimation.up_and_show(login_grid1, 18, 48);
-            ServicesAnimation.opacity(login_grid1, 0.5,0.0);
-            ServicesAnimation.opacity(register_grid1, 0.0, 1);
+            ServicesAnimation.up_and_show(register_grid1, 9, 39,Canvas.LeftProperty,500);
+            ServicesAnimation.up_and_show(login_grid1, 9, 39,Canvas.LeftProperty,500);
+            ServicesAnimation.opacity(login_grid1, 0.5,0.0,500);
+            ServicesAnimation.opacity(register_grid1, 0.0, 1,500);
             
             login_grid1.Visibility = Visibility.Collapsed;
 

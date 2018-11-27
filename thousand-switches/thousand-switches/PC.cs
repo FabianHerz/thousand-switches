@@ -6,15 +6,20 @@ using System.Threading.Tasks;
 
 namespace thousand_switches
 {
-    class PC : Network
+    public class PC 
     {
-        String Name, IP;
-        int SwitchNumber;
-        public PC(string Name, string IP, int SwitchNumber)
+        public String Name, IP;
+        public int row, column;
+
+
+        public PC(string Name, string IP)
         {
             this.Name = Name;
             this.IP = IP;
-            this.SwitchNumber = SwitchNumber;
+        }
+        public override string ToString()
+        {
+            return Name;
         }
     }
 }
