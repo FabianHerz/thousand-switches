@@ -17,6 +17,9 @@ namespace thousand_switches
         public static Network this_network;
         public static List<object> equipment_router;
 
+        public static string DAT_FILE_PATH = "../../admin_list.dat";
+
+
         public static void getData()
         {
             adminList = getAdminList();
@@ -27,8 +30,8 @@ namespace thousand_switches
             BinaryFormatter formatter = new BinaryFormatter();
 
             List<Admin> dat = new List<Admin>();
-            if (File.Exists("../../admin_list.dat"))
-                using (FileStream fs = new FileStream("../../admin_list.dat", FileMode.OpenOrCreate))
+            if (File.Exists(DAT_FILE_PATH))
+                using (FileStream fs = new FileStream(DAT_FILE_PATH, FileMode.OpenOrCreate))
                 {
                     dat = (List<Admin>)formatter.Deserialize(fs);
                 }
@@ -60,9 +63,9 @@ namespace thousand_switches
         public static  void saveData()
         {
             BinaryFormatter formatter = new BinaryFormatter();
-            File.Delete("./admin_list.dat");
+            File.Delete(DAT_FILE_PATH);
 
-            using (FileStream fs = new FileStream("./admin_list.dat", FileMode.OpenOrCreate))
+            using (FileStream fs = new FileStream(DAT_FILE_PATH, FileMode.OpenOrCreate))
             {
                 formatter.Serialize(fs, adminList);
             }
